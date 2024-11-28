@@ -23,6 +23,7 @@
 		1398560A2CE66F7400AA62B0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139856092CE66F7400AA62B0 /* ProfileView.swift */; };
 		1398560C2CE66F8E00AA62B0 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398560B2CE66F8E00AA62B0 /* ResetPasswordView.swift */; };
 		13D626102CE6A96F009DFE02 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6260F2CE6A96F009DFE02 /* ResetPasswordViewModel.swift */; };
+		4ABAB7DF2CF7850400A098B5 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */; };
 		4AF414382CF647DA004FEE85 /* RoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF414372CF647DA004FEE85 /* RoleViewModel.swift */; };
 		4AF4143A2CF6748A004FEE85 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF414392CF6748A004FEE85 /* SignupViewModel.swift */; };
 		7A11330F2CECD29900E3BFE4 /* OTPverificationview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11330E2CECD29900E3BFE4 /* OTPverificationview.swift */; };
@@ -62,6 +63,7 @@
 		139856092CE66F7400AA62B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1398560B2CE66F8E00AA62B0 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		13D6260F2CE6A96F009DFE02 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		4AF414372CF647DA004FEE85 /* RoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
 		4AF414392CF6748A004FEE85 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		7A11330E2CECD29900E3BFE4 /* OTPverificationview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPverificationview.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				7A59D5372CF520E200CB79D8 /* AddProjectViewModel.swift */,
 				4AF414372CF647DA004FEE85 /* RoleViewModel.swift */,
 				4AF414392CF6748A004FEE85 /* SignupViewModel.swift */,
+				4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				7A1133172CEE342700E3BFE4 /* HomePageView.swift in Sources */,
 				139855F62CE6660A00AA62B0 /* FreeLancy.xcdatamodeld in Sources */,
 				7A59D5322CF508C300CB79D8 /* RoleView.swift in Sources */,
+				4ABAB7DF2CF7850400A098B5 /* KeychainHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

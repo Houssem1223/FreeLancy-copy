@@ -2,6 +2,7 @@ import SwiftUI
 
 struct EntrepreneurHomePage: View {
     var username: String
+    
     @State private var navigateToProfile = false
     @State private var isDrawerOpen = false
     @State private var navigateToLogin = false
@@ -117,7 +118,7 @@ struct EntrepreneurHomePage: View {
                         EmptyView()
                     }
                 )
-                NavigationLink(destination: LoginView(), isActive: $navigateToLogin) {
+                NavigationLink(destination: LoginView() .navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
                     EmptyView()
                 }
             }

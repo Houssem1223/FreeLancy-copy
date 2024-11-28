@@ -46,8 +46,8 @@ struct LoginView: View {
                     
                     // Log In Button
                     Button(action: {
-                       viewModel.handleLogin()
-                      //  viewModel.fetchRoleDetails(idrole: "")
+                        viewModel.handleLogin()
+                        //  viewModel.fetchRoleDetails(idrole: "")
                     }) {
                         Text("Log In")
                             .font(.headline)
@@ -82,10 +82,10 @@ struct LoginView: View {
                         isActive: $viewModel.isLoggedIn
                     ) {
                         EmptyView()
-                    }   
-                    .navigationBarBackButtonHidden(true)
-
-
+                    }
+                    
+                    
+                    
                     
                     NavigationLink(
                         destination: ForgotPasswordView(viewModel: ForgotPasswordViewModel(), showVerifyOtpSheet: $showVerifyOtpSheet, email: email),
@@ -104,20 +104,36 @@ struct LoginView: View {
                     Spacer()
                 }
                 .padding()
+                .navigationBarBackButtonHidden(true)
                 .alert(isPresented: $viewModel.showError) {
                     Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+                }  
+           }
+            .onAppear {
+                // Check for existing session in Keychain
+                if let accessToken = KeychainHelper.retrieve(key: "accessToken"),
+                   let userId = KeychainHelper.retrieve(key: "userId"),
+                   let roleId = KeychainHelper.retrieve(key: "roleId") ,
+                    let username = KeychainHelper.retrieve(key: "username"){
+                    // Update ViewModel with saved session
+                    viewModel.isLoggedIn = true
+                    viewModel.role = roleId
+                    viewModel.username = username // Replace with actual username if available
+                    print("Restored session: \(accessToken), \(username), \(roleId)")
                 }
-            }
-        }.navigationBarBackButtonHidden(true)
-    }
+            }.navigationBarBackButtonHidden(true)
+        }}
     @ViewBuilder
       private func destinationView() -> some View {
           if viewModel.role == "Freelancer" {
-              HomePage(username: viewModel.username) // Navigate to Freelancer Home Page
+              HomePage(username: viewModel.username)
+             .navigationBarBackButtonHidden(true)
           } else if viewModel.role == "Entrepreneur" {
-              EntrepreneurHomePage(username: viewModel.username) // Navigate to Entrepreneur Home Page
+              EntrepreneurHomePage(username: viewModel.username)
+                  .navigationBarBackButtonHidden(true)
           } else {
-              Text("Unknown Role").foregroundColor(.red) // Fallback for unknown roles
+              Text("Unknown Role").foregroundColor(.red)
+                  .navigationBarBackButtonHidden(true)
           }
       }
 
