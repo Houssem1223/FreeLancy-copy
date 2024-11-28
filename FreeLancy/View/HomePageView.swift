@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomePage: View {
     var username: String
+   
     @State private var navigateToProfile = false
     @State private var isDrawerOpen = false // State to toggle the drawer
     @State private var navigateToLogin = false
@@ -94,7 +95,7 @@ struct HomePage: View {
                         EmptyView()
                     }
                 )
-                NavigationLink(destination: LoginView(), isActive: $navigateToLogin) {
+                NavigationLink(destination: LoginView()   .navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
                     EmptyView()
                 }
             }
@@ -185,6 +186,7 @@ struct DrawerMenuItem: View {
 }
 
 struct DrawerView: View {
+    @StateObject private var viewModel = LoginViewModel()
     @Binding var isDrawerOpen: Bool
     var username: String
     @Binding var navigateToProfile: Bool
@@ -276,19 +278,21 @@ struct DrawerView: View {
                 // Logout Section
                 Button(action: {
                     isDrawerOpen = false
-                    navigateToLogin = true
+                    viewModel.logout()// Call logout function from the ViewModel
+                    navigateToLogin = true // Navigate to login screen
                 }) {
                     HStack {
                         Image(systemName: "arrow.backward.square")
                             .foregroundColor(.green)
-
+                        
                         Text("Log out")
                             .foregroundColor(.green)
                             .fontWeight(.semibold)
                     }
                     .padding()
+                    
                 }
-
+               
                 Text("Version 1.76.0.22")
                     .font(.caption)
                     .foregroundColor(.gray)

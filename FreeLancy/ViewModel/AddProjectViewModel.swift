@@ -41,7 +41,12 @@ class AddProjectViewModel: ObservableObject {
     // Function to submit the project to the backend
     func submitProject() {
         guard validateInputs() else { return }
-
+        // Retrieve userId from Keychain
+        guard let userId = KeychainHelper.retrieve(key: "userId") else {
+            errorMessage = "User not logged in. Please log in again."
+            showError = true
+            return
+        }
         // Show loading indicator
         isLoading = true
         showError = false
@@ -53,7 +58,8 @@ class AddProjectViewModel: ObservableObject {
             "technologies": projectTechnologies,
             "budget": projectBudget,
             "duration": ISO8601DateFormatter().string(from: projectDeadline),
-            "status": projectStatus
+            "status": projectStatus,
+            "userId": userId
         ]
 
         // Convert the request body to JSON
@@ -113,40 +119,73 @@ class AddProjectViewModel: ObservableObject {
     @Published var projects: [Project] = [] // To store fetched projects
 
        // Fetch projects from the backend
-       func fetchProjects() {
-           guard let url = URL(string: "http://172.18.4.45:3000/projet/get") else {
-                   print("Invalid URL")
-                   return
-               }
+    func fetchProjects() {
+        guard let userId = KeychainHelper.retrieve(key: "userId") else {
+            errorMessage = "User not logged in. Please log in again."
+            showError = true
+            return
+        }
 
-               isLoading = true
+        guard let url = URL(string: "http://172.18.6.197:3000/projet/user") else {
+            print("Invalid URL")
+            return
+        }
 
-               URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                   DispatchQueue.main.async {
-                       self?.isLoading = false
+        // Create the request body
+        let requestBody: [String: String] = ["userId": userId]
 
-                       if let error = error {
-                           self?.errorMessage = "Failed to fetch projects: \(error.localizedDescription)"
-                           self?.showError = true
-                           return
-                       }
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: requestBody) else {
+            errorMessage = "Failed to encode request data."
+            showError = true
+            return
+        }
 
-                       guard let data = data else {
-                           self?.errorMessage = "No data received from server."
-                           self?.showError = true
-                           return
-                       }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
 
-                       do {
-                           let decoder = JSONDecoder()
-                           let projects = try decoder.decode([Project].self, from: data)
-                           self?.projects = projects
-                       } catch {
-                           self?.errorMessage = "Failed to decode project data: \(error.localizedDescription)"
-                           self?.showError = true
-                       }
-                   }
-               }.resume()
+        isLoading = true
 
-       }
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+
+                if let error = error {
+                    print("Network Error: \(error.localizedDescription)")
+                    self?.errorMessage = "Failed to fetch projects: \(error.localizedDescription)"
+                    self?.showError = true
+                    return
+                }
+
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Status Code: \(httpResponse.statusCode)")
+                }
+
+                guard let data = data else {
+                    print("No data received.")
+                    self?.errorMessage = "No data received from server."
+                    self?.showError = true
+                    return
+                }
+
+                print("Response Size: \(data.count) bytes")
+                print("Raw Response: \(String(data: data, encoding: .utf8) ?? "Invalid Response")")
+
+                do {
+                    let decoder = JSONDecoder()
+                    let projects = try decoder.decode([Project].self, from: data)
+                    self?.projects = projects
+                } catch {
+                    print("Decoding Error: \(error.localizedDescription)")
+                    self?.errorMessage = "Failed to decode project data."
+                    self?.showError = true
+                }
+            }
+        }.resume()
+    }
+
+
+
+
 }

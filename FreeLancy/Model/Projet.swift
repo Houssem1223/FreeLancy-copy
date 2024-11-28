@@ -15,6 +15,7 @@ struct Project: Decodable {
     let budget: String
     let duration: String
     let status: String
+    
 
     
     
