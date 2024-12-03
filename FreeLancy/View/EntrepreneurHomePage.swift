@@ -9,6 +9,8 @@ struct EntrepreneurHomePage: View {
     @State private var searchText = ""
     @State private var selectedTab = "My Projects"
     let tabs = ["My Projects", "New Proposals"]
+    @StateObject private var notificationViewModel = NotificationViewModel()
+    @StateObject private var postulationViewModel = PostulationViewModel()
     @StateObject private var viewModel = AddProjectViewModel()
     @State private var showProjects = false
     
@@ -20,11 +22,18 @@ struct EntrepreneurHomePage: View {
                         .ignoresSafeArea()
                     
                     VStack(alignment: .leading) {
-                        TextField("Search projects or freelancers", text: $searchText)
+                        TextField("Search projects by name", text: $searchText)
                             .padding()
                             .background(Color(.systemGray6))
                             .cornerRadius(10)
                             .padding(.horizontal)
+                            .onChange(of: searchText) { newValue in
+                                // Update filtered projects when search text changes
+                                if selectedTab == "My Projects" {
+                                    // Re-fetch projects if necessary
+                                    viewModel.fetchProjects()
+                                }
+                            }
                         
                         // Tab Selection
                         HStack {
@@ -34,9 +43,9 @@ struct EntrepreneurHomePage: View {
                                     .foregroundColor(selectedTab == tab ? .blue : .gray)
                                     .onTapGesture {
                                         selectedTab = tab
-                                if selectedTab == "My Projects" {
-                                    viewModel.fetchProjects()
-                                                }
+                                        if selectedTab == "My Projects" {
+                                            viewModel.fetchProjects()
+                                        }
                                     }
                                     .padding(.horizontal)
                             }
@@ -52,36 +61,37 @@ struct EntrepreneurHomePage: View {
                         // Content Based on Tab Selection
                         ScrollView {
                             if selectedTab == "My Projects" {
-                                                       // Show Projects Automatically
-                                                       if viewModel.isLoading {
-                                                           ProgressView("Loading...")
-                                                       } else if !viewModel.errorMessage.isEmpty {
-                                                           Text(viewModel.errorMessage)
-                                                               .foregroundColor(.red)
-                                                               .padding()
-                                                       } else if viewModel.projects.isEmpty {
-                                                           Text("No projects found.")
-                                                               .foregroundColor(.gray)
-                                                               .padding()
-                                                       } else {
-                                                           ForEach(viewModel.projects, id: \.title) { project in
-                                                               ProjectCardView(
-                                                                   title: project.title,
-                                                                   description: project.description,
-                                                                   tags: project.technologies.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) },
-                                                                   budget: project.budget,
-                                                                   deadline: project.duration
-                                                               )
-                                                               .padding(.horizontal)
-                                                           }
-                                                       }
-                                                   } else {
-                                                       // Placeholder for "New Proposals" tab
-                                                       Text("No new proposals available.")
-                                                           .foregroundColor(.gray)
-                                                           .padding()
-                                                   }
-                                               }
+                                // Show Projects Automatically
+                                if viewModel.isLoading {
+                                    ProgressView("Loading...")
+                                } else if !viewModel.errorMessage.isEmpty {
+                                    Text(viewModel.errorMessage)
+                                        .foregroundColor(.red)
+                                        .padding()
+                                } else if viewModel.projects.isEmpty {
+                                    Text("No projects found.")
+                                        .foregroundColor(.gray)
+                                        .padding()
+                                } else {
+                                    let filteredProjects = viewModel.filterProjects(viewModel.projects, searchText: searchText)
+                                    ForEach(filteredProjects, id: \.title) { project in
+                                        ProjectCardView(
+                                            title: project.title,
+                                            description: project.description,
+                                            tags: project.technologies.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) },
+                                            budget: project.budget,
+                                            deadline: project.duration
+                                        )
+                                        .padding(.horizontal)
+                                    }
+                                }
+                            } else {
+                                // Placeholder for "New Proposals" tab
+                                Text("No new proposals available.")
+                                    .foregroundColor(.gray)
+                                    .padding()
+                            }
+                        }
                         
                         Spacer()
                         
@@ -93,7 +103,10 @@ struct EntrepreneurHomePage: View {
                                 NavigationBarItem(icon: "doc.badge.plus", title: "Add Project")
                             }
                             NavigationBarItem(icon: "message", title: "Messages")
-                            NavigationBarItem(icon: "bell", title: "Alerts")
+                            
+                            NavigationLink(destination: NotificationsView()) {
+                                NavigationBarItem(icon: "bell.fill", title: "Alerts")
+                            }
                         }
                         .padding(.vertical, 10)
                         .background(Color.white)
@@ -111,14 +124,18 @@ struct EntrepreneurHomePage: View {
                             }
                         }
                     }
-                    .navigationBarBackButtonHidden(true)
+                    .onAppear {
+                        // Ensure that projects are fetched when the page appears
+                        viewModel.fetchProjects()
+                    }
                 }
+                .navigationBarBackButtonHidden(true) // Apply here, on the NavigationStack
                 .background(
                     NavigationLink(destination: ProfileView(user: username), isActive: $navigateToProfile) {
                         EmptyView()
                     }
                 )
-                NavigationLink(destination: LoginView() .navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
+                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
                     EmptyView()
                 }
             }
@@ -129,52 +146,54 @@ struct EntrepreneurHomePage: View {
                     .animation(.easeInOut, value: isDrawerOpen)
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
+// Separate NotificationBellView outside of the EntrepreneurHomePage view
+
+
+struct ProjectCardView: View {
+    let title: String
+    let description: String
+    let tags: [String]
+    let budget: String
+    let deadline: String
     
-    struct ProjectCardView: View {
-        let title: String
-        let description: String
-        let tags: [String]
-        let budget: String
-        let deadline: String
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundColor(.black)
-                
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .lineLimit(2)
-                
-                HStack {
-                    Text("Technologies: \(tags.joined(separator: ", "))")
-                        .font(.footnote)
-                        .foregroundColor(.blue)
-                    
-                    Spacer()
-                    
-                    Text("Budget: \(budget)")
-                        .font(.footnote)
-                        .foregroundColor(.green)
-                }
-                
-                Text("Deadline: \(deadline)")
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.headline)
+                .foregroundColor(.black)
+            
+            Text(description)
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .lineLimit(2)
+            
+            HStack {
+                Text("Technologies: \(tags.joined(separator: ", "))")
                     .font(.footnote)
-                    .foregroundColor(.red)
+                    .foregroundColor(.blue)
+                
+                Spacer()
+                
+                Text("Budget: \(budget)")
+                    .font(.footnote)
+                    .foregroundColor(.green)
             }
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
+            
+            Text("Deadline: \(deadline)")
+                .font(.footnote)
+                .foregroundColor(.red)
         }
+        .padding()
+        .background(Color(.systemGray6))
+        .cornerRadius(10)
     }
-    struct ProjectView_Previews: PreviewProvider {
-        static var previews: some View {
-            EntrepreneurHomePage(username: "" )
-        }
+}
+
+struct ProjectView_Previews: PreviewProvider {
+    static var previews: some View {
+        EntrepreneurHomePage(username: "" )
     }
+}

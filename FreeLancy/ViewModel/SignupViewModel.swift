@@ -14,6 +14,9 @@ class SignupViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var role: String = "Freelancer"
     @Published var avatarUrl: String = ""
+    @Published var skills: String = ""
+
+
 
     
 
@@ -38,6 +41,10 @@ class SignupViewModel: ObservableObject {
             "password": password,
             "role": role,
             "avatarUrl": avatarUrl,
+            "skills": skills,
+
+           
+
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: requestBody)
         
