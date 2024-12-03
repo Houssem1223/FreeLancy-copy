@@ -10,7 +10,8 @@ class User: ObservableObject {
     @Published var username: String
     @Published var email: String
     @Published var password: String
- 
+    //@Published var skills: String
+
 
 
     
@@ -18,7 +19,8 @@ class User: ObservableObject {
         self.username = username
         self.email = email
         self.password = password
-   
+        
+
 
     }
 }

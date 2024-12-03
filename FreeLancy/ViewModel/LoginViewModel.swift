@@ -64,13 +64,20 @@ class LoginViewModel: ObservableObject {
                     // Parse the login response
                     if let responseJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                        let accessToken = responseJSON["access_token"] as? String,
-                       let userId = responseJSON["id"] as? String { // Assume the login response includes a "role" field
+                       let userId = responseJSON["id"] as? String ,
+                        let username = responseJSON["username"] as? String{
                         DispatchQueue.main.async {
-                            print("JWT Token: \(accessToken)")
-                            print("id: \(userId)")
+                            // Save access token and user ID to UserDefaults
+                            KeychainHelper.save(key: "accessToken", value: accessToken)
+                            KeychainHelper.save(key: "userId", value: userId)
+                            KeychainHelper.save(key: "username", value: username)
+                           
                             
+                            print("JWT Token: \(accessToken)")
+                            print("User ID: \(userId)")
+                            print("User : \(username)")
                             // Fetch role details
-                        self.fetchRoleDetails(userId: userId) // Fetch role details based on the name
+                            self.fetchRoleDetails(userId: userId)
                         }
                     } else {
                         DispatchQueue.main.async {
@@ -124,10 +131,14 @@ class LoginViewModel: ObservableObject {
                 do {
                     // Parse the role response
                     if let roleJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let roleId = roleJSON["idRole"] as? String { // Adjust based on your API response
+                       let roleId = roleJSON["idRole"] as? String {
                         DispatchQueue.main.async {
-                            self.role = roleId // Update the role ID
-                            self.isLoggedIn = true // Trigger navigation or update UI
+                            // Save role ID to UserDefaults
+                            KeychainHelper.save(key: "roleId", value: roleId)
+                            
+                            self.role = roleId
+                            self.isLoggedIn = true
+                            
                             print("Role ID: \(roleId)")
                         }
                     } else {
@@ -145,43 +156,20 @@ class LoginViewModel: ObservableObject {
             }
         }.resume()
     }
+    func logout() {
+            // Clear session data
+            KeychainHelper.delete(key: "accessToken")
+            KeychainHelper.delete(key: "userId")
+            KeychainHelper.delete(key: "roleId")
 
-    func handleForgotPassword() {
-        guard !username.isEmpty else {
-            errorMessage = "Please enter your username."
-            showError = true
-            return
+            // Reset app state
+            DispatchQueue.main.async {
+                self.isLoggedIn = false
+                self.username = ""
+                self.role = ""
+            }
+
+            print("User logged out successfully.")
         }
-
-        let url = URL(string: "http://172.18.24.114:3000/user/forgot-password")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let requestBody: [String: String] = ["username": username]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: requestBody)
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Request failed: \(error.localizedDescription)"
-                    self.showError = true
-                }
-                return
-            }
-
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 {
-                DispatchQueue.main.async {
-                    self.resetEmail = self.username
-                    self.showResetPassword = true
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.errorMessage = "No account found for this username."
-                    self.showError = true
-                }
-            }
-        }.resume()
     }
-}
 
