@@ -100,15 +100,26 @@ struct EntrepreneurHomePage: View {
                         // Bottom Navigation Bar
                         HStack {
                             NavigationBarItem(icon: "magnifyingglass", title: "Projects", isActive: true)
-                            NavigationBarItem(icon: "person", title: "Freelancers")
+                               NavigationLink(destination: AcceptedFreelancersView()) {
+                                   NavigationBarItem(icon: "person", title: "Freelancers")
+                               }
                             NavigationLink(destination: AddProjectView()) {
                                 NavigationBarItem(icon: "doc.badge.plus", title: "Add Project")
                             }
                             NavigationBarItem(icon: "message", title: "Messages")
-                            
-                            NavigationLink(destination: NotificationsView()) {
-                                NavigationBarItem(icon: "bell.fill", title: "Alerts")
-                            }
+                            ZStack{
+                                NavigationLink(destination: NotificationsView()) {
+                                    NavigationBarItem(icon: "bell.fill", title: "Alerts")
+                                }
+                                if notificationViewModel.unreadCount > 0 {
+                                    Text("\(notificationViewModel.unreadCount)")
+                                        .font(.caption2)
+                                        .foregroundColor(.white)
+                                        .padding(5)
+                                        .background(Color.red)
+                                        .clipShape(Circle())
+                                        .offset(x: 10, y: -10)
+                                }}
                         }
                         .padding(.vertical, 10)
                         .background(Color.white)
@@ -129,6 +140,7 @@ struct EntrepreneurHomePage: View {
                     .onAppear {
                         // Ensure that projects are fetched when the page appears
                         viewModel.fetchProjects()
+                        notificationViewModel.fetchNotifications() //
                     }
                 }
                 .navigationBarBackButtonHidden(true) // Apply here, on the NavigationStack

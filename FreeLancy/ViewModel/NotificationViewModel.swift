@@ -76,6 +76,7 @@ class NotificationViewModel: ObservableObject {
                 do {
                     let notification = try JSONDecoder().decode([Notification].self, from: data)
                     self?.notifications = notification
+                    self?.unreadCount = (self?.notifications.filter { $0.status == "unread" }.count)!
                     
                 } catch {
                     print("Decoding Error: \(error.localizedDescription)")

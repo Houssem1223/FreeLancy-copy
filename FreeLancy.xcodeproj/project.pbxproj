@@ -29,6 +29,18 @@
 		4A5F59C42D00AE3700BC00BB /* MyrequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */; };
 		4A5F59C62D00CA2000BC00BB /* FreelancerpostulatedView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */; };
 		4A5F59C82D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */; };
+		4A73F81D2D022477006B44C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F81C2D022477006B44C7 /* NetworkManager.swift */; };
+		4A73F81F2D0236EC006B44C7 /* AcceptedFreelancersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F81E2D0236EC006B44C7 /* AcceptedFreelancersView.swift */; };
+		4A73F8232D0237DE006B44C7 /* AcceptedFreelancersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8222D0237DE006B44C7 /* AcceptedFreelancersViewModel.swift */; };
+		4A73F8A42D02538D006B44C7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8A32D02538D006B44C7 /* Message.swift */; };
+		4A73F8A62D0253ED006B44C7 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8A52D0253ED006B44C7 /* MessageManager.swift */; };
+		4A73F8A82D02541E006B44C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8A72D02541E006B44C7 /* Extensions.swift */; };
+		4A73F8AA2D025454006B44C7 /* Chatview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8A92D025454006B44C7 /* Chatview.swift */; };
+		4A73F8AC2D0254C3006B44C7 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8AB2D0254C3006B44C7 /* TitleRow.swift */; };
+		4A73F8AE2D0254CA006B44C7 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8AD2D0254CA006B44C7 /* MessageBubble.swift */; };
+		4A73F8B02D0254D0006B44C7 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73F8AF2D0254D0006B44C7 /* MessageField.swift */; };
+		4A73F8B22D02550D006B44C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A73F8B12D02550D006B44C7 /* GoogleService-Info.plist */; };
+		4A73F8B52D02588A006B44C7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A73F8B42D02588A006B44C7 /* FirebaseFirestore */; };
 		4A7C50D92CFF495D004F2859 /* ProjectDetailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50D82CFF495D004F2859 /* ProjectDetailview.swift */; };
 		4A7C50DB2CFF69CC004F2859 /* PostulationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50DA2CFF69CB004F2859 /* PostulationViewModel.swift */; };
 		4A7C50DD2CFF7660004F2859 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50DC2CFF7660004F2859 /* Notification.swift */; };
@@ -80,6 +92,17 @@
 		4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyrequestsView.swift; sourceTree = "<group>"; };
 		4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FreelancerpostulatedView .swift"; sourceTree = "<group>"; };
 		4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreelancerPostulatedViewModel.swift; sourceTree = "<group>"; };
+		4A73F81C2D022477006B44C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4A73F81E2D0236EC006B44C7 /* AcceptedFreelancersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedFreelancersView.swift; sourceTree = "<group>"; };
+		4A73F8222D0237DE006B44C7 /* AcceptedFreelancersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedFreelancersViewModel.swift; sourceTree = "<group>"; };
+		4A73F8A32D02538D006B44C7 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4A73F8A52D0253ED006B44C7 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		4A73F8A72D02541E006B44C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4A73F8A92D025454006B44C7 /* Chatview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chatview.swift; sourceTree = "<group>"; };
+		4A73F8AB2D0254C3006B44C7 /* TitleRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
+		4A73F8AD2D0254CA006B44C7 /* MessageBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		4A73F8AF2D0254D0006B44C7 /* MessageField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
+		4A73F8B12D02550D006B44C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A7C50D82CFF495D004F2859 /* ProjectDetailview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailview.swift; sourceTree = "<group>"; };
 		4A7C50DA2CFF69CB004F2859 /* PostulationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostulationViewModel.swift; sourceTree = "<group>"; };
 		4A7C50DC2CFF7660004F2859 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -112,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A73F8B52D02588A006B44C7 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +161,7 @@
 		139855E82CE6660900AA62B0 /* FreeLancy */ = {
 			isa = PBXGroup;
 			children = (
+				4A73F8B12D02550D006B44C7 /* GoogleService-Info.plist */,
 				139855FE2CE6665900AA62B0 /* ViewModel */,
 				139855FD2CE6664A00AA62B0 /* Model */,
 				139855FC2CE6661900AA62B0 /* View */,
@@ -161,6 +186,9 @@
 		139855FC2CE6661900AA62B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4A73F8AF2D0254D0006B44C7 /* MessageField.swift */,
+				4A73F8AD2D0254CA006B44C7 /* MessageBubble.swift */,
+				4A73F8AB2D0254C3006B44C7 /* TitleRow.swift */,
 				139855FF2CE668F000AA62B0 /* LoginView.swift */,
 				139856052CE66CA500AA62B0 /* SignupView.swift */,
 				139856092CE66F7400AA62B0 /* ProfileView.swift */,
@@ -183,6 +211,9 @@
 				4A5F59B92D00703600BC00BB /* FreelancerDetailsView.swift */,
 				4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */,
 				4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */,
+				4A73F81E2D0236EC006B44C7 /* AcceptedFreelancersView.swift */,
+				4A73F8A72D02541E006B44C7 /* Extensions.swift */,
+				4A73F8A92D025454006B44C7 /* Chatview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +225,7 @@
 				7A59D5392CF52D9700CB79D8 /* Projet.swift */,
 				4A7C50DC2CFF7660004F2859 /* Notification.swift */,
 				4A5F59BB2D0089E500BC00BB /* Postulation.swift */,
+				4A73F8A32D02538D006B44C7 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +248,9 @@
 				4A7C50DE2CFF76CC004F2859 /* NotificationViewModel.swift */,
 				4A5F59C12D00AA4500BC00BB /* HistoriqueViewModel.swift */,
 				4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */,
+				4A73F81C2D022477006B44C7 /* NetworkManager.swift */,
+				4A73F8222D0237DE006B44C7 /* AcceptedFreelancersViewModel.swift */,
+				4A73F8A52D0253ED006B44C7 /* MessageManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -236,6 +271,9 @@
 			dependencies = (
 			);
 			name = FreeLancy;
+			packageProductDependencies = (
+				4A73F8B42D02588A006B44C7 /* FirebaseFirestore */,
+			);
 			productName = FreeLancy;
 			productReference = 139855E62CE6660900AA62B0 /* FreeLancy.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 139855DD2CE6660900AA62B0;
+			packageReferences = (
+				4A73F8B32D02588A006B44C7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 139855E72CE6660900AA62B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +321,7 @@
 			files = (
 				139855F12CE6660A00AA62B0 /* Preview Assets.xcassets in Resources */,
 				139855EE2CE6660A00AA62B0 /* Assets.xcassets in Resources */,
+				4A73F8B22D02550D006B44C7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +332,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A73F81D2D022477006B44C7 /* NetworkManager.swift in Sources */,
 				7A59D5362CF5141C00CB79D8 /* EntrepreneurHomePage.swift in Sources */,
+				4A73F8B02D0254D0006B44C7 /* MessageField.swift in Sources */,
 				139855F32CE6660A00AA62B0 /* Persistence.swift in Sources */,
 				4A7C50DF2CFF76CC004F2859 /* NotificationViewModel.swift in Sources */,
 				139855EC2CE6660900AA62B0 /* ContentView.swift in Sources */,
@@ -316,14 +360,20 @@
 				7A59D53C2CF537F700CB79D8 /* SwiftUIView.swift in Sources */,
 				7A59D53A2CF52D9700CB79D8 /* Projet.swift in Sources */,
 				136D1FB12CE6811800031DCE /* ProfileViewModel.swift in Sources */,
+				4A73F8A42D02538D006B44C7 /* Message.swift in Sources */,
+				4A73F81F2D0236EC006B44C7 /* AcceptedFreelancersView.swift in Sources */,
 				139856082CE66F3800AA62B0 /* User.swift in Sources */,
 				1391D2EE2CE69458009B432D /* UpdateprofileViewModel.swift in Sources */,
+				4A73F8AE2D0254CA006B44C7 /* MessageBubble.swift in Sources */,
+				4A73F8A82D02541E006B44C7 /* Extensions.swift in Sources */,
 				7A69E45B2CEA675100CC7434 /* ForgotPasswordViewModel.swift in Sources */,
 				4A7C50DB2CFF69CC004F2859 /* PostulationViewModel.swift in Sources */,
 				1398560C2CE66F8E00AA62B0 /* ResetPasswordView.swift in Sources */,
 				7A69E45F2CEA68E300CC7434 /* VerifyOtpView.swift in Sources */,
 				4A7C50E12CFF77F9004F2859 /* NotificationsView.swift in Sources */,
 				7A59D5382CF520E200CB79D8 /* AddProjectViewModel.swift in Sources */,
+				4A73F8AC2D0254C3006B44C7 /* TitleRow.swift in Sources */,
+				4A73F8A62D0253ED006B44C7 /* MessageManager.swift in Sources */,
 				4AF4143A2CF6748A004FEE85 /* SignupViewModel.swift in Sources */,
 				139855EA2CE6660900AA62B0 /* FreeLancyApp.swift in Sources */,
 				4A5F59BC2D0089E500BC00BB /* Postulation.swift in Sources */,
@@ -332,7 +382,9 @@
 				4A5F59C22D00AA4500BC00BB /* HistoriqueViewModel.swift in Sources */,
 				4A5F59C82D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift in Sources */,
 				4A5F59C42D00AE3700BC00BB /* MyrequestsView.swift in Sources */,
+				4A73F8232D0237DE006B44C7 /* AcceptedFreelancersViewModel.swift in Sources */,
 				139855F62CE6660A00AA62B0 /* FreeLancy.xcdatamodeld in Sources */,
+				4A73F8AA2D025454006B44C7 /* Chatview.swift in Sources */,
 				7A59D5322CF508C300CB79D8 /* RoleView.swift in Sources */,
 				4ABAB7DF2CF7850400A098B5 /* KeychainHelper.swift in Sources */,
 			);
@@ -533,6 +585,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A73F8B32D02588A006B44C7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A73F8B42D02588A006B44C7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A73F8B32D02588A006B44C7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		139855F42CE6660A00AA62B0 /* FreeLancy.xcdatamodeld */ = {

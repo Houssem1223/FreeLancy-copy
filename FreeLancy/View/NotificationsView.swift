@@ -30,6 +30,7 @@ struct NotificationsView: View {
             .onAppear {
                 viewModel.fetchNotifications()
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Notifications")
             .sheet(isPresented: $isFreelancerSheetPresented) {
                 if let freelancer = viewModel.selectedFreelancer {
