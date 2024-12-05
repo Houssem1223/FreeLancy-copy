@@ -14,6 +14,7 @@ struct Notification: Codable, Identifiable {
     var entrepreneurId: String
     var message: String
     var status: String
+    var freelancerId : String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id" // Map _id in JSON to id in Swift
@@ -21,5 +22,6 @@ struct Notification: Codable, Identifiable {
         case entrepreneurId
         case message
         case status
+        case freelancerId
     }
 }

@@ -30,7 +30,7 @@ class LoginViewModel: ObservableObject {
         }
 
         // Configure API URL and request
-        let loginUrl = URL(string: "http://172.18.6.197:3000/user/loginA")! // Login endpoint
+        let loginUrl = URL(string: "http://172.18.4.45:3000/user/loginA")! // Login endpoint
         var loginRequest = URLRequest(url: loginUrl)
         loginRequest.httpMethod = "POST"
         loginRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -97,7 +97,7 @@ class LoginViewModel: ObservableObject {
 
     func fetchRoleDetails(userId: String) {
         // API URL for fetching role ID
-        let roleUrl = URL(string: "http://172.18.6.197:3000/user/getIdRole")! // Adjust endpoint
+        let roleUrl = URL(string: "http://172.18.4.45:3000/user/getIdRole")! // Adjust endpoint
         var roleRequest = URLRequest(url: roleUrl)
         roleRequest.httpMethod = "POST"
         roleRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
