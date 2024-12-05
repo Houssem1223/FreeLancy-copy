@@ -71,7 +71,7 @@ class AddProjectViewModel: ObservableObject {
         }
 
         // Create the URL and request
-        guard let url = URL(string: "http://172.18.6.197:3000/projet/add") else {
+        guard let url = URL(string: "http://172.18.4.45:3000/projet/add") else {
             errorMessage = "Invalid URL."
             showError = true
             isLoading = false
@@ -127,7 +127,7 @@ class AddProjectViewModel: ObservableObject {
             return
         }
 
-        guard let url = URL(string: "http://172.18.6.197:3000/projet/user") else {
+        guard let url = URL(string: "http://172.18.4.45:3000/projet/user") else {
             print("Invalid URL")
             return
         }
@@ -169,8 +169,8 @@ class AddProjectViewModel: ObservableObject {
                     return
                 }
 
-                print("Response Size: \(data.count) bytes")
-                print("Raw Response: \(String(data: data, encoding: .utf8) ?? "Invalid Response")")
+               // print("Response Size: \(data.count) bytes")
+               // print("Raw Response: \(String(data: data, encoding: .utf8) ?? "Invalid Response")")
 
                 do {
                     let decoder = JSONDecoder()
@@ -191,7 +191,7 @@ class AddProjectViewModel: ObservableObject {
             return
         }
         
-        guard let url = URL(string: "http://172.18.6.197:3000/project-filter/filterPer") else {
+        guard let url = URL(string: "http://172.18.4.45:3000/project-filter/filterPer") else {
             print("Invalid URL")
             return
         }

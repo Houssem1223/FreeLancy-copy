@@ -1,8 +1,8 @@
 import SwiftUI
 
-// Notifications View
 struct NotificationsView: View {
     @StateObject private var viewModel = NotificationViewModel()
+    @State private var isFreelancerSheetPresented = false
 
     var body: some View {
         NavigationView {
@@ -20,7 +20,8 @@ struct NotificationsView: View {
                 } else {
                     List(viewModel.notifications) { notification in
                         NotificationRow(notification: notification) {
-//                            viewModel.markNotificationAsRead(notificationId: notification.id)
+                            viewModel.fetchFreelancerDetails(freelancerId: notification.freelancerId)
+                            isFreelancerSheetPresented = true
                         }
                     }
                     .listStyle(PlainListStyle())
@@ -30,20 +31,26 @@ struct NotificationsView: View {
                 viewModel.fetchNotifications()
             }
             .navigationTitle("Notifications")
+            .sheet(isPresented: $isFreelancerSheetPresented) {
+                if let freelancer = viewModel.selectedFreelancer {
+                    FreelancerDetailsView(user: freelancer)  // Make sure to pass 'freelancer' here
+                } else {
+                    ProgressView("Loading...")
+                }
+            }
         }
     }
 }
+
 struct NotificationRow: View {
     let notification: Notification
-    let markAsRead: () -> Void
+    let onTap: () -> Void
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(notification.message)
                 .font(.body)
                 .foregroundColor(notification.status == "read" ? .gray : .black)
-
-            
 
             Text("Status: \(notification.status.capitalized)")
                 .font(.footnote)
@@ -53,21 +60,25 @@ struct NotificationRow: View {
         .background(notification.status == "read" ? Color.gray.opacity(0.2) : Color.white)
         .cornerRadius(10)
         .onTapGesture {
-            markAsRead()
+            onTap()
         }
     }
 }
+
+// FreelancerDetailsView (Example View)
+
 
 // Preview
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         let mockViewModel = NotificationViewModel()
         mockViewModel.notifications = [
-            Notification(id: "1", projectId: "101", entrepreneurId: "E1", message: "New project update", status: "unread"),
-            Notification(id: "2", projectId: "102", entrepreneurId: "E2", message: "Message received", status: "read")
+            Notification(id: "1", projectId: "101", entrepreneurId: "E1", message: "New project update", status: "unread", freelancerId: "freelancer1"),
+            Notification(id: "2", projectId: "102", entrepreneurId: "E2", message: "Message received", status: "read", freelancerId: "freelancer2")
         ]
         
         return NotificationsView()
             .environmentObject(mockViewModel)
     }
 }
+

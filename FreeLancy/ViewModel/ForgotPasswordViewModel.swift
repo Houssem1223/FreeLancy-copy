@@ -25,7 +25,7 @@ class ForgotPasswordViewModel: ObservableObject {
             return
         }
         
-        let url = URL(string: "http://172.18.6.197:3000/user/forgot-password")!
+        let url = URL(string: "http://172.18.4.45:3000/user/forgot-password")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

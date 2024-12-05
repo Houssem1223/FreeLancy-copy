@@ -20,7 +20,7 @@ class PostulationViewModel: ObservableObject {
         }
         
         // Define the endpoint for posting the application
-        let url = URL(string: "http://172.18.6.197:3000/application")!
+        let url = URL(string: "http://172.18.4.45:3000/application")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -30,7 +30,7 @@ class PostulationViewModel: ObservableObject {
         let body: [String: Any] = [
             "freelancer": freelancerId,
             "project": projectId,
-            "status": "pending" // Assuming the status starts as 'pending'
+            "status": "Pending" // Assuming the status starts as 'pending'
         ]
         
         do {

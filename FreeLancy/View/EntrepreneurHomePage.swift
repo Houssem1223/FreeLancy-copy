@@ -4,6 +4,7 @@ struct EntrepreneurHomePage: View {
     var username: String
     
     @State private var navigateToProfile = false
+    @State private var navigateToMyRequests = false
     @State private var isDrawerOpen = false
     @State private var navigateToLogin = false
     @State private var searchText = ""
@@ -75,15 +76,16 @@ struct EntrepreneurHomePage: View {
                                 } else {
                                     let filteredProjects = viewModel.filterProjects(viewModel.projects, searchText: searchText)
                                     ForEach(filteredProjects, id: \.title) { project in
-                                        ProjectCardView(
-                                            title: project.title,
-                                            description: project.description,
-                                            tags: project.technologies.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) },
-                                            budget: project.budget,
-                                            deadline: project.duration
-                                        )
-                                        .padding(.horizontal)
-                                    }
+                                        NavigationLink(destination: FreelancerpostulatedView(project: project)){
+                                            ProjectCardView(
+                                                title: project.title,
+                                                description: project.description,
+                                                tags: project.technologies.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) },
+                                                budget: project.budget,
+                                                deadline: project.duration
+                                            )
+                                            .padding(.horizontal)
+                                        }}
                                 }
                             } else {
                                 // Placeholder for "New Proposals" tab
@@ -141,7 +143,7 @@ struct EntrepreneurHomePage: View {
             }
             
             if isDrawerOpen {
-                DrawerView(isDrawerOpen: $isDrawerOpen, username: username, navigateToProfile: $navigateToProfile, navigateToLogin: $navigateToLogin)
+                DrawerView(isDrawerOpen: $isDrawerOpen, username: username, navigateToProfile: $navigateToProfile, navigateToLogin: $navigateToLogin, navigateToMyRequests:$navigateToMyRequests)
                     .transition(.move(edge: .leading))
                     .animation(.easeInOut, value: isDrawerOpen)
             }
