@@ -30,7 +30,7 @@ class SignupViewModel: ObservableObject {
     func signup() {
         guard validateInputs() else { return }
         
-        let url = URL(string: "http://172.18.6.197:3000/user/signup")!
+        let url = URL(string: "http://172.18.4.45:3000/user/signup")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -60,6 +60,7 @@ class SignupViewModel: ObservableObject {
                     self?.errorMessage = "Account created successfully."
                 } else {
                     self?.errorMessage = "Failed to create account."
+                    
                 }
                 self?.showError = true
             }

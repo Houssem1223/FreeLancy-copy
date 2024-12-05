@@ -12,7 +12,7 @@ class UpdateProfileViewModel: ObservableObject {
     @Published var showConfirmationAlert: Bool = false
     private var cancellables = Set<AnyCancellable>()
     
-    private let baseURL = "http://172.18.6.197:3000" // Replace with your actual backend base URL
+    private let baseURL = "http://172.18.4.45:3000" // Replace with your actual backend base URL
     
     init(username: String) {
         self.username = username
