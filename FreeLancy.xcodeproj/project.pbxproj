@@ -23,12 +23,17 @@
 		1398560A2CE66F7400AA62B0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139856092CE66F7400AA62B0 /* ProfileView.swift */; };
 		1398560C2CE66F8E00AA62B0 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398560B2CE66F8E00AA62B0 /* ResetPasswordView.swift */; };
 		13D626102CE6A96F009DFE02 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D6260F2CE6A96F009DFE02 /* ResetPasswordViewModel.swift */; };
+		4A5F59BA2D00703600BC00BB /* FreelancerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59B92D00703600BC00BB /* FreelancerDetailsView.swift */; };
+		4A5F59BC2D0089E500BC00BB /* Postulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59BB2D0089E500BC00BB /* Postulation.swift */; };
+		4A5F59C22D00AA4500BC00BB /* HistoriqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C12D00AA4500BC00BB /* HistoriqueViewModel.swift */; };
+		4A5F59C42D00AE3700BC00BB /* MyrequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */; };
+		4A5F59C62D00CA2000BC00BB /* FreelancerpostulatedView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */; };
+		4A5F59C82D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */; };
 		4A7C50D92CFF495D004F2859 /* ProjectDetailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50D82CFF495D004F2859 /* ProjectDetailview.swift */; };
 		4A7C50DB2CFF69CC004F2859 /* PostulationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50DA2CFF69CB004F2859 /* PostulationViewModel.swift */; };
 		4A7C50DD2CFF7660004F2859 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50DC2CFF7660004F2859 /* Notification.swift */; };
 		4A7C50DF2CFF76CC004F2859 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50DE2CFF76CC004F2859 /* NotificationViewModel.swift */; };
 		4A7C50E12CFF77F9004F2859 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C50E02CFF77F9004F2859 /* NotificationsView.swift */; };
-		4A7CFDDD2CF8E90700CC540B /* filterWithIa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7CFDDC2CF8E90700CC540B /* filterWithIa.swift */; };
 		4ABAB7DF2CF7850400A098B5 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */; };
 		4AF414382CF647DA004FEE85 /* RoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF414372CF647DA004FEE85 /* RoleViewModel.swift */; };
 		4AF4143A2CF6748A004FEE85 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF414392CF6748A004FEE85 /* SignupViewModel.swift */; };
@@ -69,12 +74,17 @@
 		139856092CE66F7400AA62B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1398560B2CE66F8E00AA62B0 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		13D6260F2CE6A96F009DFE02 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		4A5F59B92D00703600BC00BB /* FreelancerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreelancerDetailsView.swift; sourceTree = "<group>"; };
+		4A5F59BB2D0089E500BC00BB /* Postulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postulation.swift; sourceTree = "<group>"; };
+		4A5F59C12D00AA4500BC00BB /* HistoriqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueViewModel.swift; sourceTree = "<group>"; };
+		4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyrequestsView.swift; sourceTree = "<group>"; };
+		4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FreelancerpostulatedView .swift"; sourceTree = "<group>"; };
+		4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreelancerPostulatedViewModel.swift; sourceTree = "<group>"; };
 		4A7C50D82CFF495D004F2859 /* ProjectDetailview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailview.swift; sourceTree = "<group>"; };
 		4A7C50DA2CFF69CB004F2859 /* PostulationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostulationViewModel.swift; sourceTree = "<group>"; };
 		4A7C50DC2CFF7660004F2859 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		4A7C50DE2CFF76CC004F2859 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		4A7C50E02CFF77F9004F2859 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
-		4A7CFDDC2CF8E90700CC540B /* filterWithIa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterWithIa.swift; sourceTree = "<group>"; };
 		4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		4AF414372CF647DA004FEE85 /* RoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewModel.swift; sourceTree = "<group>"; };
 		4AF414392CF6748A004FEE85 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +180,9 @@
 				7A59D53B2CF537F700CB79D8 /* SwiftUIView.swift */,
 				4A7C50D82CFF495D004F2859 /* ProjectDetailview.swift */,
 				4A7C50E02CFF77F9004F2859 /* NotificationsView.swift */,
+				4A5F59B92D00703600BC00BB /* FreelancerDetailsView.swift */,
+				4A5F59C32D00AE3600BC00BB /* MyrequestsView.swift */,
+				4A5F59C52D00CA2000BC00BB /* FreelancerpostulatedView .swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +193,7 @@
 				139856072CE66F3800AA62B0 /* User.swift */,
 				7A59D5392CF52D9700CB79D8 /* Projet.swift */,
 				4A7C50DC2CFF7660004F2859 /* Notification.swift */,
+				4A5F59BB2D0089E500BC00BB /* Postulation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,9 +212,10 @@
 				4AF414372CF647DA004FEE85 /* RoleViewModel.swift */,
 				4AF414392CF6748A004FEE85 /* SignupViewModel.swift */,
 				4ABAB7DE2CF7850400A098B5 /* KeychainHelper.swift */,
-				4A7CFDDC2CF8E90700CC540B /* filterWithIa.swift */,
 				4A7C50DA2CFF69CB004F2859 /* PostulationViewModel.swift */,
 				4A7C50DE2CFF76CC004F2859 /* NotificationViewModel.swift */,
+				4A5F59C12D00AA4500BC00BB /* HistoriqueViewModel.swift */,
+				4A5F59C72D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -281,7 +296,7 @@
 				139855EC2CE6660900AA62B0 /* ContentView.swift in Sources */,
 				7A69E45D2CEA67F500CC7434 /* verifyOtp.swift in Sources */,
 				4AF414382CF647DA004FEE85 /* RoleViewModel.swift in Sources */,
-				4A7CFDDD2CF8E90700CC540B /* filterWithIa.swift in Sources */,
+				4A5F59C62D00CA2000BC00BB /* FreelancerpostulatedView .swift in Sources */,
 				7A69E4592CEA64E700CC7434 /* ForgotPasswordView.swift in Sources */,
 				7A1133192CEFB35100E3BFE4 /* NavigationManager.swift in Sources */,
 				1398560A2CE66F7400AA62B0 /* ProfileView.swift in Sources */,
@@ -295,6 +310,7 @@
 				7A1133152CEE2DF600E3BFE4 /* WelcomeView.swift in Sources */,
 				7A11330F2CECD29900E3BFE4 /* OTPverificationview.swift in Sources */,
 				139856062CE66CA500AA62B0 /* SignupView.swift in Sources */,
+				4A5F59BA2D00703600BC00BB /* FreelancerDetailsView.swift in Sources */,
 				7A1133112CECD37300E3BFE4 /* loginButton.swift in Sources */,
 				4A7C50D92CFF495D004F2859 /* ProjectDetailview.swift in Sources */,
 				7A59D53C2CF537F700CB79D8 /* SwiftUIView.swift in Sources */,
@@ -310,8 +326,12 @@
 				7A59D5382CF520E200CB79D8 /* AddProjectViewModel.swift in Sources */,
 				4AF4143A2CF6748A004FEE85 /* SignupViewModel.swift in Sources */,
 				139855EA2CE6660900AA62B0 /* FreeLancyApp.swift in Sources */,
+				4A5F59BC2D0089E500BC00BB /* Postulation.swift in Sources */,
 				139856002CE668F000AA62B0 /* LoginView.swift in Sources */,
 				7A1133172CEE342700E3BFE4 /* HomePageView.swift in Sources */,
+				4A5F59C22D00AA4500BC00BB /* HistoriqueViewModel.swift in Sources */,
+				4A5F59C82D00CAF700BC00BB /* FreelancerPostulatedViewModel.swift in Sources */,
+				4A5F59C42D00AE3700BC00BB /* MyrequestsView.swift in Sources */,
 				139855F62CE6660A00AA62B0 /* FreeLancy.xcdatamodeld in Sources */,
 				7A59D5322CF508C300CB79D8 /* RoleView.swift in Sources */,
 				4ABAB7DF2CF7850400A098B5 /* KeychainHelper.swift in Sources */,

@@ -4,6 +4,7 @@ struct HomePage: View {
     var username: String
    
     @State private var navigateToProfile = false
+    @State private var navigateToMyRequests = false
     @State private var isDrawerOpen = false // State to toggle the drawer
     @State private var navigateToLogin = false
     @State private var searchText = "" // For the search bar
@@ -151,14 +152,18 @@ struct HomePage: View {
                         EmptyView()
                     }
                 )
+                NavigationLink(destination: MyRequestsView(), isActive: $navigateToMyRequests) {
+                                  EmptyView()
+                              }
                 NavigationLink(destination: LoginView()   .navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
                     EmptyView()
                 }
+                
             }
 
             // Drawer Overlay
             if isDrawerOpen {
-                DrawerView(isDrawerOpen: $isDrawerOpen, username: username, navigateToProfile: $navigateToProfile, navigateToLogin: $navigateToLogin)
+                DrawerView(isDrawerOpen: $isDrawerOpen, username: username, navigateToProfile: $navigateToProfile, navigateToLogin: $navigateToLogin ,  navigateToMyRequests: $navigateToMyRequests)
                     .transition(.move(edge: .leading))
                     .animation(.easeInOut, value: isDrawerOpen)
             }
@@ -249,7 +254,7 @@ struct JoblistingCardView: View {
         var username: String
         @Binding var navigateToProfile: Bool
         @Binding var navigateToLogin: Bool
-        
+        @Binding var navigateToMyRequests: Bool
         var body: some View {
             ZStack(alignment: .leading) {
                 Color.black.opacity(0.4) // Background overlay
@@ -306,10 +311,11 @@ struct JoblistingCardView: View {
                             print("Navigating to Reports") // Navigate to Reports
                         }
                     }
+                 
                     DrawerMenuItem(iconName: "hammer", title: "My Requests") {
                         withAnimation {
                             isDrawerOpen = false
-                            print("Navigating to My Requests") // Navigate to My Requests
+                            navigateToMyRequests = true // Trigger navigation to My Requests
                         }
                     }
                     DrawerMenuItem(iconName: "square.grid.2x2", title: "Apps and Offers") {

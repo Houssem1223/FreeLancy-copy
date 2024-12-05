@@ -15,7 +15,7 @@ class RoleViewModel: ObservableObject {
     func updateRole(for username: String, to newRole: String, completion: @escaping (Bool) -> Void) {
         print(newRole)
         // Simulate an API call or database update
-        guard let url = URL(string: "http://172.18.6.197:3000/user/update-role") else {
+        guard let url = URL(string: "http://172.18.4.45:3000/user/update-role") else {
             completion(false)
             return
         }
